@@ -1,0 +1,38 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: Cars - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\Users\HESHIM~1\AppData\Local\Temp\RSP779A.tmp" with contents
+[
+/nologo /MDd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /Fp"Debug/Cars.pch" /Yu"stdafx.h" /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"C:\Cars\CarsView.cpp"
+]
+Creating command line "cl.exe @C:\Users\HESHIM~1\AppData\Local\Temp\RSP779A.tmp" 
+Creating temporary file "C:\Users\HESHIM~1\AppData\Local\Temp\RSP779B.tmp" with contents
+[
+/nologo /subsystem:windows /incremental:yes /pdb:"Debug/Cars.pdb" /debug /machine:I386 /out:"Debug/Cars.exe" /pdbtype:sept 
+.\Debug\Cars.obj
+.\Debug\CarsDlg.obj
+.\Debug\CarsDoc.obj
+.\Debug\CarsView.obj
+.\Debug\MainFrm.obj
+.\Debug\StdAfx.obj
+.\Debug\Cars.res
+]
+Creating command line "link.exe @C:\Users\HESHIM~1\AppData\Local\Temp\RSP779B.tmp"
+<h3>Output Window</h3>
+Compiling...
+CarsView.cpp
+Linking...
+
+
+
+<h3>Results</h3>
+Cars.exe - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>
