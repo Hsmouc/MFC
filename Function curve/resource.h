@@ -7,8 +7,8 @@
 #define IDR_FUNCTITYPE                  129
 #define IDD_DIALOG1                     130
 #define ID_MENUITEM32771                32771
-#define sin                             32772
-#define cos                             32773
+#define sinFunc                         32772
+#define cosFunc                         32773
 
 // Next default values for new objects
 // 

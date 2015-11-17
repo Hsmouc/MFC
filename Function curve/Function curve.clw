@@ -15,9 +15,9 @@ Class3=CFunctioncurveView
 Class4=CMainFrame
 
 ResourceCount=3
-Resource1=IDD_ABOUTBOX
+Resource1=IDR_MAINFRAME
 Class5=CAboutDlg
-Resource2=IDR_MAINFRAME
+Resource2=IDD_ABOUTBOX
 Class6=ColorDialog
 Resource3=IDD_DIALOG1
 
@@ -48,7 +48,9 @@ Type=0
 HeaderFile=MainFrm.h
 ImplementationFile=MainFrm.cpp
 Filter=T
-LastObject=cos
+LastObject=cosFunc
+BaseClass=CFrameWnd
+VirtualFilter=fWC
 
 
 
@@ -88,8 +90,8 @@ Command14=ID_VIEW_TOOLBAR
 Command15=ID_VIEW_STATUS_BAR
 Command16=ID_APP_ABOUT
 Command17=ID_MENUITEM32771
-Command18=sin
-Command19=cos
+Command18=sinFunc
+Command19=cosFunc
 CommandCount=19
 
 [ACL:IDR_MAINFRAME]

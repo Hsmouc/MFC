@@ -140,8 +140,8 @@ BEGIN
     MENUITEM "Colors",                      ID_MENUITEM32771, HELP
     POPUP "Model"
     BEGIN
-        MENUITEM "sin(x)",                      sin
-        MENUITEM "cos(x)",                      cos
+        MENUITEM "sin(x)",                      sinFunc
+        MENUITEM "cos(x)",                      cosFunc
     END
 END
 

@@ -49,8 +49,8 @@ protected:
 protected:
 	//{{AFX_MSG(CFunctioncurveView)
 	afx_msg void OnInput();
-	afx_msg void Onsin();
-	afx_msg void Oncos();
+	afx_msg void OnsinFunc();
+	afx_msg void OncosFunc();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 };

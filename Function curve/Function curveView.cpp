@@ -5,6 +5,7 @@
 #include "Function curve.h"
 #include "Function curveDoc.h"
 #include "Function curveView.h"
+#include "math.h"
 #include "olorDialog.h"
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -20,8 +21,8 @@ IMPLEMENT_DYNCREATE(CFunctioncurveView, CView)
 BEGIN_MESSAGE_MAP(CFunctioncurveView, CView)
 	//{{AFX_MSG_MAP(CFunctioncurveView)
 	ON_COMMAND(ID_MENUITEM32771, OnInput)
-	ON_COMMAND(sin, Onsin)
-	ON_COMMAND(cos, Oncos)
+	ON_COMMAND(sinFunc, OnsinFunc)
+	ON_COMMAND(cosFunc, OncosFunc)
 	//}}AFX_MSG_MAP
 	// Standard printing commands
 	ON_COMMAND(ID_FILE_PRINT, CView::OnFilePrint)
@@ -77,17 +78,16 @@ void CFunctioncurveView::OnDraw(CDC* pDC)
 	    CPen penNew,*ppenOld;
 	   	penNew.CreatePen(PS_SOLID,2,pDoc->m_brush);
 	    ppenOld=pDC->SelectObject(&penNew);
-	//	if(pDoc->model == 0)
-	//	{
+		if(pDoc->model == 0)
+		{
     	    for (int i =0;i <= iPt; i++)
 			{	
-			  double tmp = dbXMax/iPt*i;
-  	          x = (int)(dbXRatio*(tmp-dbXMin)+xOrg);
-		      y = (int)(yOrg-dbYRatio*(sin(tmp)-dbYMin));
+  	          x = (int)(dbXRatio*(dbXMax/iPt*i-dbXMin)+xOrg);
+		      y = (int)(yOrg-dbYRatio*(sin(dbXMax/iPt*i)-dbYMin));
 		      pDC->LineTo(x,y);
 			}
-	//	}
-		/*else
+		}
+		else
 		{
 	        for (int i =0;i <= iPt; i++)
 			{	
@@ -95,7 +95,7 @@ void CFunctioncurveView::OnDraw(CDC* pDC)
 		      y = (int)(yOrg-dbYRatio*(cos(dbXMax/iPt*i)-dbYMin));
 		      pDC->LineTo(x,y);
 			}		 
-		}*/
+		}
 		pDC->SelectObject(ppenOld);
 		penNew.DeleteObject();
 		pDC->MoveTo(xOrg,yOrg);
@@ -176,7 +176,8 @@ void CFunctioncurveView::OnInput()
     }
 }
 
-void CFunctioncurveView::Onsin() 
+
+void CFunctioncurveView::OnsinFunc() 
 {
 	// TODO: Add your command handler code here
 	CFunctioncurveDoc *pDoc = GetDocument();
@@ -185,11 +186,10 @@ void CFunctioncurveView::Onsin()
 	
 }
 
-void CFunctioncurveView::Oncos() 
+void CFunctioncurveView::OncosFunc() 
 {
 	// TODO: Add your command handler code here
 	CFunctioncurveDoc *pDoc = GetDocument();
 	ASSERT_VALID(pDoc);
 	pDoc->model = 1;
-	
 }
