@@ -23,7 +23,7 @@ public:
 	int body_y;
 	int direction;
 	int length;
-	}snake[50];
+	}snake[100];
 
 	struct{
 	int food_x;

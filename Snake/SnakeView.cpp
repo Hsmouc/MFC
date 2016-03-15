@@ -28,6 +28,8 @@ BEGIN_MESSAGE_MAP(CSnakeView, CView)
 	ON_COMMAND(ID_Hard, OnHard)
 	ON_COMMAND(ID_Normol, OnNormol)
 	ON_COMMAND(ID_Start, OnStart)
+	ON_COMMAND(ID_Pause, OnPause)
+	ON_COMMAND(ID_Stop, OnStop)
 	//}}AFX_MSG_MAP
 	// Standard printing commands
 	ON_COMMAND(ID_FILE_PRINT, CView::OnFilePrint)
@@ -280,4 +282,23 @@ void CSnakeView::OnStart()
 	ASSERT_VALID(pDoc);
 	pDoc->startFlag = true;
 	SetTimer(1,300,NULL); //normal	
+}
+
+
+
+void CSnakeView::OnPause() 
+{
+	// TODO: Add your command handler code here
+	KillTimer(1);	
+}
+
+
+
+void CSnakeView::OnStop() 
+{
+	// TODO: Add your command handler code here
+	AfxMessageBox("Have a nice day!");
+	ASSERT(AfxGetApp()->m_pMainWnd != NULL);
+    AfxGetApp()->m_pMainWnd->SendMessage(WM_CLOSE);
+	
 }

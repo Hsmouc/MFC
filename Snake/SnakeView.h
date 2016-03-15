@@ -56,6 +56,8 @@ protected:
 	afx_msg void OnHard();
 	afx_msg void OnNormol();
 	afx_msg void OnStart();
+	afx_msg void OnPause();
+	afx_msg void OnStop();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 };

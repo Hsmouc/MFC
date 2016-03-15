@@ -138,6 +138,8 @@ BEGIN
         MENUITEM "&About Snake...",             ID_APP_ABOUT
     END
     MENUITEM "Start",                       ID_Start
+    MENUITEM "Pause",                       ID_Pause
+    MENUITEM "Stop",                        ID_Stop
     POPUP "Settings"
     BEGIN
         MENUITEM "Easy",                        ID_Easy
