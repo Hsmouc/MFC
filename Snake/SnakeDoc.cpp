@@ -50,7 +50,8 @@ BOOL CSnakeDoc::OnNewDocument()
 	snake[0].direction = 3;
 	snake[0].length = 3;
 	food.isfood = true;
-	
+	startFlag = false;
+
 	// TODO: add reinitialization code here
 	// (SDI documents will reuse this document)
 

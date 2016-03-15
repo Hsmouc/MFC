@@ -27,6 +27,7 @@ BEGIN_MESSAGE_MAP(CSnakeView, CView)
 	ON_COMMAND(ID_Crazy, OnCrazy)
 	ON_COMMAND(ID_Hard, OnHard)
 	ON_COMMAND(ID_Normol, OnNormol)
+	ON_COMMAND(ID_Start, OnStart)
 	//}}AFX_MSG_MAP
 	// Standard printing commands
 	ON_COMMAND(ID_FILE_PRINT, CView::OnFilePrint)
@@ -62,6 +63,8 @@ void CSnakeView::OnDraw(CDC* pDC)
 {
 	CSnakeDoc* pDoc = GetDocument();
 	ASSERT_VALID(pDoc);
+	pDC->TextOut(20,20,"Hsmouc");
+	pDC->TextOut(20,50,"Ocean University of China");
 	CBrush DrawBrush=(RGB(130,130,0));
 	CBrush *Drawbrush=pDC->SelectObject(&DrawBrush);
 	for(int i = 0 ; i <= pDoc->snake[0].length-1 ; i++){
@@ -200,25 +203,25 @@ void CSnakeView::OnTimer(UINT nIDEvent)
 	{
 		srand((unsigned)time(NULL));
 		do{
-			for(int isfo=pDoc->snake[0].length-1;isfo>=0;isfo--)
-				if(pDoc->snake[0].body_x*20 == pDoc->snake[isfo].body_x*20 && pDoc->snake[0].body_y*20 == pDoc->snake[isfo].body_y*20){
+			for(int temp=pDoc->snake[0].length-1 ; temp >= 0 ; temp--)
+				if(pDoc->snake[0].body_x*20 == pDoc->snake[temp].body_x*20 && pDoc->snake[0].body_y*20 == pDoc->snake[temp].body_y*20){
 					pDoc->food.food_x=rand()%25;
 					pDoc->food.food_y=rand()%25;
+					for(temp=pDoc->snake[0].length-1 ; temp >= 0 ; temp--){
+						if(pDoc->food.food_x*20 == pDoc->snake[temp].body_x*20 && pDoc->food.food_y*20 == pDoc->snake[temp].body_y*20){
+							temp = pDoc->snake[0].length-1;
+							pDoc->food.food_x=rand()%25;
+							pDoc->food.food_y=rand()%25;
+						}
+					}
 				}
 		}while(pDoc->food.food_x*20 < 50 || pDoc->food.food_y*20 < 50 || pDoc->food.food_x*20 > rectClient.right-100 || pDoc->food.food_y*20 > rectClient.right-100);
 		pDC->Rectangle(pDoc->food.food_x*20,pDoc->food.food_y*20,(pDoc->food.food_x+1)*20,(pDoc->food.food_y+1)*20);
 		pDoc->food.isfood = false;
-		}
+	}
 	CView::OnTimer(nIDEvent);
 }
 
-void CSnakeView::OnInitialUpdate() 
-{
-	CView::OnInitialUpdate();
-	
-	// TODO: Add your specialized code here and/or call the base class
-	
-}
 
 void CSnakeView::OnLButtonDown(UINT nFlags, CPoint point) 
 {
@@ -229,24 +232,48 @@ void CSnakeView::OnLButtonDown(UINT nFlags, CPoint point)
 void CSnakeView::OnEasy() 
 {
 	// TODO: Add your command handler code here
-	SetTimer(1,400,NULL);
-	
+	CSnakeDoc* pDoc = GetDocument();
+	ASSERT_VALID(pDoc);
+	if(pDoc->startFlag == true){
+		SetTimer(1,400,NULL);
+	}
 }
 
 void CSnakeView::OnCrazy() 
 {
 	// TODO: Add your command handler code here
-	SetTimer(1,100,NULL);
+	CSnakeDoc* pDoc = GetDocument();
+	ASSERT_VALID(pDoc);
+	if(pDoc->startFlag == true){
+		SetTimer(1,100,NULL);
+	}
 }
 
 void CSnakeView::OnHard() 
 {
 	// TODO: Add your command handler code here
-	SetTimer(1,200,NULL);
+	CSnakeDoc* pDoc = GetDocument();
+	ASSERT_VALID(pDoc);
+	if(pDoc->startFlag == true){
+		SetTimer(1,200,NULL);
+	}
 }
 
 void CSnakeView::OnNormol() 
 {
 	// TODO: Add your command handler code here
-	SetTimer(1,300,NULL);
+	CSnakeDoc* pDoc = GetDocument();
+	ASSERT_VALID(pDoc);
+	if(pDoc->startFlag == true){
+		SetTimer(1,300,NULL);
+	}
+}
+
+void CSnakeView::OnStart() 
+{
+	// TODO: Add your command handler code here
+	CSnakeDoc* pDoc = GetDocument();
+	ASSERT_VALID(pDoc);
+	pDoc->startFlag = true;
+	SetTimer(1,300,NULL); //normal	
 }

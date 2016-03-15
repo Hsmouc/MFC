@@ -31,6 +31,8 @@ public:
 	bool isfood;
 	}food;
 
+	bool startFlag;
+
 // Operations
 public:
 	bool isGameOver();

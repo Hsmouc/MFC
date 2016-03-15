@@ -47,7 +47,7 @@ Type=0
 HeaderFile=MainFrm.h
 ImplementationFile=MainFrm.cpp
 Filter=T
-LastObject=ID_Normol
+LastObject=ID_Start
 BaseClass=CFrameWnd
 VirtualFilter=fWC
 
@@ -88,11 +88,12 @@ Command13=ID_EDIT_PASTE
 Command14=ID_VIEW_TOOLBAR
 Command15=ID_VIEW_STATUS_BAR
 Command16=ID_APP_ABOUT
-Command17=ID_Easy
-Command18=ID_Normol
-Command19=ID_Hard
-Command20=ID_Crazy
-CommandCount=20
+Command17=ID_Start
+Command18=ID_Easy
+Command19=ID_Normol
+Command20=ID_Hard
+Command21=ID_Crazy
+CommandCount=21
 
 [ACL:IDR_MAINFRAME]
 Type=1

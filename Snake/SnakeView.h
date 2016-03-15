@@ -29,7 +29,6 @@ public:
 	public:
 	virtual void OnDraw(CDC* pDC);  // overridden to draw this view
 	virtual BOOL PreCreateWindow(CREATESTRUCT& cs);
-	virtual void OnInitialUpdate();
 	protected:
 	virtual BOOL OnPreparePrinting(CPrintInfo* pInfo);
 	virtual void OnBeginPrinting(CDC* pDC, CPrintInfo* pInfo);
@@ -56,6 +55,7 @@ protected:
 	afx_msg void OnCrazy();
 	afx_msg void OnHard();
 	afx_msg void OnNormol();
+	afx_msg void OnStart();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 };
