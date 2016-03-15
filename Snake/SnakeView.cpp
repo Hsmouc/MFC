@@ -159,12 +159,16 @@ void CSnakeView::OnTimer(UINT nIDEvent)
 	if(pDoc->snake[0].body_x*20 <= rectClient.left || pDoc->snake[0].body_x*20 >= rectClient.right || pDoc->snake[0].body_y*20 <= rectClient.top || pDoc->snake[0].body_y*20 >= rectClient.bottom){
 		KillTimer(1);
 		AfxMessageBox("233");
+		InvalidateRect(rectClient);
+		pDoc->gameReset();
 	}
 	if(pDoc->snake[0].length > 3){
 		for(int temp = pDoc->snake[0].length-1 ; temp > 0 ; temp--){
 			if(pDoc->snake[0].body_x*20==pDoc->snake[temp].body_x*20 && pDoc->snake[0].body_y*20 == pDoc->snake[temp].body_y*20){
 				KillTimer(1);
 				AfxMessageBox("233");
+				InvalidateRect(rectClient);
+				pDoc->gameReset();
 			}
 		}
 	}

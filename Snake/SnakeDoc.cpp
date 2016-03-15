@@ -93,4 +93,18 @@ void CSnakeDoc::Dump(CDumpContext& dc) const
 /////////////////////////////////////////////////////////////////////////////
 // CSnakeDoc commands
 
+void CSnakeDoc::gameReset()
+{
+	snake[0].body_x = 10;
+	snake[0].body_y = 10;
+	snake[1].body_x = 11;
+	snake[1].body_y = 10;
+	snake[2].body_x = 12;
+	snake[2].body_y = 10;
+	snake[0].direction = 3;
+	snake[0].length = 3;
+	food.isfood = true;
+	startFlag = false;
+
+}
 

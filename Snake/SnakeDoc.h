@@ -35,7 +35,6 @@ public:
 
 // Operations
 public:
-	bool isGameOver();
 	void gameReset();
 // Overrides
 	// ClassWizard generated virtual function overrides
